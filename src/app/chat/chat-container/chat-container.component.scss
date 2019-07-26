@@ -1,0 +1,277 @@
+$w: 100%;
+$bg: #d6dae1;
+$font-fam: 'Roboto', sans-serif;
+$font-size: 16pt;
+
+
+
+.example-container {
+  width: $w;
+  height: $w;
+  border-radius: 10px;
+  background-color: $bg;
+  overflow: hidden;
+  font-family: $font-fam;
+  font-size: $font-size;
+}
+
+h2 {
+  text-align: center;
+  color: #717a8d;
+}
+.mat-drawer-inner-container {
+    width: $w;
+    height: $w;
+    overflow: hidden;
+}
+
+mat-drawer {
+  width: 30%;
+  min-width: 330px;
+  min-height: 570px;
+}
+mat-drawer-content {
+  margin-left: 30%;
+  min-width: 500px;
+  min-height: 570px;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+}
+
+.close:hover{
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.chat_item {
+    width: $w;
+    height: 10%;
+    border-radius: 5px 0 0 5px;
+    background-color: white;
+    margin-bottom: 3%;
+}
+.chat_item .body_message .text {
+  font-weight: bold;
+}
+.chat_item:hover{
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.chat_list {
+    width: $w;
+    height: $w;
+    overflow: auto;
+}
+.empty_chat {
+  margin: 15% auto;
+  width: 20%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #717a8d;
+  opacity: 0.7;
+}
+.empty_chat:hover {
+  background-color: whitesmoke;
+}
+
+body header {
+  color: #717a8d;
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+
+mat-drawer body {
+  width: 95%;
+  margin-left: 5%;
+}
+
+
+mat-drawer-content body {
+  margin: 0;
+  width: $w;
+  height: 70%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+}
+
+.message {
+  width: 95%;
+  height: 15%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  border-radius: 0 5px 5px;
+  background-color: #e9ebf1;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  width: $w;
+  height: 30%;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.self {
+  background-color: white;
+  border: 1px solid #a8a9ad;
+  border-radius: 5px 5px 0;
+  margin-left: 1.8vw;
+}
+
+textarea {
+  margin-top: 1%;
+  width: 98%;
+  height: 39%;
+  padding: 0.5%;
+  resize: none;
+  border: none;
+}
+
+textarea:-moz-placeholder { font-style: italic; }
+textarea::-webkit-input-placeholder { font-style: italic; }
+textarea::placeholder { font-style: italic; }
+
+.activity {
+  width: 98.5%;
+}
+
+.activity button {
+  float: right;
+}
+
+span.attachment {
+    margin-right: 3%;
+}
+
+.attachments {
+  float: left;
+  width: 80%;
+  margin-top: 1%;
+  color: #717a8d;
+}
+
+.attachment {
+  border-bottom: 1px solid;
+  font-size: 10pt;
+}
+
+.attachment:hover, .activity button:hover {
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.header_message {
+    width: 98%;
+    height: 35%;
+    margin: 0% auto;
+    padding-top: 0.5%;
+}
+
+span.time {
+    float: right;
+}
+
+span.name {
+    float: left;
+}
+
+.body_message {
+    width: 98%;
+    height: 44%;
+    margin: 0% auto;
+    overflow-y: auto;
+}
+
+.header_message span {
+    color: #717a8d;
+    margin-bottom: 2%;
+}
+
+mat-drawer-content body::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+mat-drawer-content body::-webkit-scrollbar {
+  width: 0.5vw;
+  position: absolute;
+}
+mat-drawer-content body::-webkit-scrollbar-thumb {
+  min-height: 5px;
+  max-height: 5px;
+  background-color: #e9ebf1;
+  border-radius: 10px;
+}
+
+mat-drawer-content body{
+  scrollbar-color: #251e1b #3a302c;
+  scrollbar-width: thin;
+}
+
+.chat_list::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+.chat_list::-webkit-scrollbar {
+  width: 0.5vw;
+  position: absolute;
+}
+.chat_list::-webkit-scrollbar-thumb {
+  min-height: 5px;
+  max-height: 5px;
+  background-color: #e9ebf1;
+  border-radius: 10px;
+}
+.chat_list{
+  scrollbar-color: #251e1b #3a302c;
+  scrollbar-width: thin;
+}
+
+mat-drawer body{
+  height: 82%;
+  overflow: hidden;
+}
+
+span.text { float: left;}
+span.events {
+  float: right;
+  display: flex;
+}
+
+
+.circle {
+  width: 2vh;
+  height: 2vh;
+  border-radius: 50%;
+  font-size: 5pt;
+  color: #fff;
+  line-height: 2vh;
+  text-align: center;
+  background: red;
+  margin: 0;
+}
+
+mark {
+  background: #d89898;
+  border-left: 2px solid #d63838;
+  font-style: italic;
+}
+
+::ng-deep .cdk-overlay-pane {
+  margin: 0 auto;
+}
+
+fieldset {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  text-align: center;
+  color: #80c2f1;
+  border-color: #80c2f1;
+}

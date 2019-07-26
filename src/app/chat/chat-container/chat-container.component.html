@@ -1,0 +1,77 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <header>
+      <h2>
+        БИЗНЕС-ЧАТ
+        <fa-icon class="close" *ngIf="activeGroupId > 0" [icon]="faTimes" (click)="activeGroupId = 0"></fa-icon>
+      </h2>
+      </header>
+    <hr size=1px width=99.5% align="left" color="white">
+    <body>
+      <header>Продукты</header>
+      <div class="chat_list">
+        <ng-container *ngIf="PRODUCT_ITEMS.length > 0">
+          <div class="chat_item" *ngFor="let group of PRODUCT_ITEMS" (click)="showGroup(group)">
+            <div class="header_message">
+              <span class="name">{{group.serialNumber}}</span>
+              <span class="time">{{group.dateTime}}</span>
+            </div>
+            <div class="body_message">
+              <span class="text">
+                <fa-icon [icon]="faArrowRight"></fa-icon> {{group.name}}
+              </span>
+              <span class="events">
+                <ng-container *ngIf="group.msgCount > 0">
+                  <fa-icon [icon]="faCommentAlt" style="color: #717a8d;"></fa-icon>
+                  <fa-layers [fixedWidth]="true">
+                  <fa-icon [icon]="faCircle" style="color: #e0e0e0;"></fa-icon>
+                  <fa-layers-text content="{{group.msgCount}}" style="color: #717a8d; font-weight: bold" transform="shrink-4"></fa-layers-text>
+                </fa-layers>
+                </ng-container>
+
+                <ng-container *ngIf="group.fileCount > 0">
+                  <fa-icon [icon]="faFileUpload" style="color: #717a8d;"></fa-icon>
+                  <fa-layers [fixedWidth]="true">
+                  <fa-icon [icon]="faCircle" style="color: #d63838;"></fa-icon>
+                  <fa-layers-text content="{{group.fileCount}}" style="color: white; ; font-weight: bold" transform="shrink-4"></fa-layers-text>
+                </fa-layers>
+                </ng-container>
+              </span>
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </body>
+  </mat-drawer>
+  <mat-drawer-content *ngIf="activeGroupId > 0">
+    <body>
+      <div class="message" [class.self]="msg.selfMsg" *ngFor="let msg of GROUP_MSG_ITEMS">
+        <div class="header_message">
+          <span class="name">{{msg.sender.name + '/' + msg.sender.position + '/' + msg.sender.orgName}}</span>
+          <span class="time">{{msg.dateTimeCreate}}</span>
+        </div>
+        <div class="body_message">
+          <span class="text">{{msg.text}}</span>
+          <span class="text" *ngIf="msg.file"><mark>{{msg.file.name + ' ' + msg.file.size}}</mark>&nbsp;<span class="attachment" style="color: darkred">ЗАГРУЗИТЬ</span></span>
+        </div>
+      </div>
+        <fieldset>
+          <legend>НОВЫЕ СООБЩЕНИЯ</legend>
+        </fieldset>
+    </body>
+    <footer>
+      <textarea placeholder="Введите текст сообщения..." #message></textarea>
+      <div class="activity">
+        <div class="attachments">
+          <span class="attachment"><fa-icon [icon]="faPaperclip"></fa-icon>ЗАГРУЗИТЬ ФАЙЛ</span>
+          <span class="attachment"><fa-icon [icon]="faFilePlus"></fa-icon>СОЗДАТЬ ЗАПРОС</span>
+          <span class="attachment"><fa-icon [icon]="faEdit"></fa-icon>ЗАПУСТИТЬ ПОДПИСАНИЕ ДОГОВОРА</span>
+        </div>
+        <button mat-raised-button
+                (click)="sendMessage(message.value); message.value = '';">Отправить <fa-icon [icon]="faArrowRight"></fa-icon></button>
+      </div>
+    </footer>
+  </mat-drawer-content>
+  <div class="empty_chat" *ngIf="activeGroupId == 0">Выберите чат</div>
+</mat-drawer-container>
